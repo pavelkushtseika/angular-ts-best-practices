@@ -14,6 +14,14 @@ export const AppRoutes: Routes = [
       {
         path: 'home',
         loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
+      },
+      {
+        path: 'posts',
+        loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
+      },
+      {
+        path: 'gallery',
+        loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
       }
     ]
   }

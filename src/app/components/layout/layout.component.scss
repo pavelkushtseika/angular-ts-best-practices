@@ -26,3 +26,15 @@
     height: calc(100vh - 56px);
   }
 }
+
+.sidebar {
+  width: 20%;
+  
+  @media (max-width: 600px) {
+    width: 200px;
+  }
+  
+  @media (min-width: 1000px) {
+    width: 200px;
+  }
+}

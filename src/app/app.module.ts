@@ -15,6 +15,8 @@ import { AppRoutes } from './app.routing';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { SidebarComponent } from './components/layout/sidebar/sidebar.component';
+import { PostsComponent } from './components/posts/posts.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { SidebarComponent } from './components/layout/sidebar/sidebar.component'
     LayoutComponent,
     HomeComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    PostsComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,

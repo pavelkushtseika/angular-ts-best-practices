@@ -1,5 +1,12 @@
 <div class="main-container">
-  <app-header></app-header>
+  <mat-toolbar color="primary">
+    <a mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </a>
+    <span fxFlex></span>
+    <app-header />
+  </mat-toolbar>
+  
   <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
   </mat-sidenav-container>
 </div>

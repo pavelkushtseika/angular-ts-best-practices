@@ -11,5 +11,8 @@
     <mat-sidenav class="sidebar" #sidebar [opened]="true" [mode]="mobileQuery.matches ? 'side' : 'over'" [opened]="mobileQuery.matches">
       <app-sidebar />
     </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

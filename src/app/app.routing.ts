@@ -17,11 +17,11 @@ export const AppRoutes: Routes = [
       },
       {
         path: 'posts',
-        loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
+        loadChildren: () => import('./components/posts/posts.module').then(m => m.PostsModule)
       },
       {
         path: 'gallery',
-        loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
+        loadChildren: () => import('./components/gallery/gallery.module').then(m => m.GalleryModule)
       }
     ]
   }

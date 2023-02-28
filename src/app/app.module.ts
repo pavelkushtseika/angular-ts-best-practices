@@ -11,6 +11,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { HttpClientModule } from '@angular/common/http';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -45,6 +46,7 @@ import { entityConfig } from './entity-metadata';
     FlexLayoutModule,
     MatButtonModule,
     MatIconModule,
+    MatGridListModule,
     MatListModule,
     MatPaginatorModule,
     MatTableModule,

@@ -16,9 +16,13 @@ const initialGallery: ImageInfo[] = [];
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent implements OnInit {
+  private readonly maxCardWidth: number = 400;
+
   isLoading$: Observable<boolean>;
   error$: Observable<string | null>;
   posts$: Observable<ImageInfo[]>;
+
+  breakpoint: number = 3;
 
   constructor(private store: Store<AppState>) {
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
@@ -28,5 +32,10 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(GalleryActions.getGallery());
+    this.breakpoint = Math.floor(window.innerWidth / this.maxCardWidth);
+  }
+  
+  onResize(event: any) {
+    this.breakpoint = Math.floor(window.innerWidth / this.maxCardWidth);
   }
 }

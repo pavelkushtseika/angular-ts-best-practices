@@ -13,6 +13,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { HttpClientModule } from '@angular/common/http';
 
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { EntityDataModule } from '@ngrx/data';
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -23,9 +26,6 @@ import { SidebarComponent } from './components/layout/sidebar/sidebar.component'
 import { PostsComponent } from './components/pages/posts/posts.component';
 import { GalleryComponent } from './components/pages/gallery/gallery.component';
 import { PostComponent } from './components/shared/post/post.component';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { EffectsModule } from '@ngrx/effects';
-import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
 
 @NgModule({
@@ -53,7 +53,7 @@ import { entityConfig } from './entity-metadata';
     HttpClientModule,
     RouterModule.forRoot(AppRoutes),
     StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode(), autoPause: true }),
     EffectsModule.forRoot([]),
     EntityDataModule.forRoot(entityConfig)
   ],

@@ -24,7 +24,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { SidebarComponent } from './components/layout/sidebar/sidebar.component';
 import { PostsComponent } from './components/pages/posts/components/posts/posts.component';
-import { GalleryComponent } from './components/pages/gallery/gallery.component';
+import { GalleryComponent } from './components/pages/gallery/components/gallery/gallery.component';
 import { PostComponent } from './components/pages/posts/components/post/post.component';
 import { entityConfig } from './entity-metadata';
 

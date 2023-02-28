@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { ImageInfo } from '../../types/image.interface';
 
 const sampleImage: ImageInfo = {

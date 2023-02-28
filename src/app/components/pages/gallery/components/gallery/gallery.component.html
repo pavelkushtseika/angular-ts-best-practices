@@ -5,6 +5,8 @@
 />
 <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)">
   <mat-grid-tile *ngFor="let image of displayGallery | async" class="thumbnail-grid-tile">
-    <app-thumbnail [image]="image" />
+    <a (click)="openDialog(image)">
+      <app-thumbnail [image]="image" />
+    </a>
   </mat-grid-tile>
 </mat-grid-list>

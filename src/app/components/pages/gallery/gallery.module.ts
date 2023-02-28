@@ -7,6 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { GalleryRoutes } from './gallery.routing';
 import { galleryReducer } from './store/gallery.reducer';
 import { GalleryEffects } from './store/gallery.effects';
+import { ImageviewComponent } from './components/imageview/imageview.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,9 @@ import { GalleryEffects } from './store/gallery.effects';
     StoreModule.forFeature('gallery', galleryReducer),
     EffectsModule.forFeature([GalleryEffects]),
     RouterModule.forChild(GalleryRoutes)
+  ],
+  declarations: [
+    ImageviewComponent
   ]
 })
 

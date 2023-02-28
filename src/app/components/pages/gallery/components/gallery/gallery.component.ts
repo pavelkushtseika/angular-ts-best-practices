@@ -1,8 +1,11 @@
 import { Component, OnDestroy, OnInit, ViewChild, ChangeDetectorRef, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
+
+import { ImageviewComponent } from '../imageview/imageview.component';
 
 import { ImageInfo } from '../../types/image.interface';
 import { AppState } from '../../../../../types/app.state.interface';
@@ -31,9 +34,19 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
 
-  constructor(private store: Store<AppState>, private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private store: Store<AppState>, private changeDetectorRef: ChangeDetectorRef, public dialog: MatDialog) {
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
     this.error$ = this.store.pipe(select(errorSelector));
+  }
+
+  openDialog(image?: ImageInfo): void {
+    console.log(image);
+    this.dialog.open(ImageviewComponent, {
+      width: '800px',
+      enterAnimationDuration: 0,
+      exitAnimationDuration: 0,
+      data: image
+    });
   }
   
   onResize(_event?: any) {

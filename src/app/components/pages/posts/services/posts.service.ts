@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
 import { PostInfo } from '../types/post.interface';
@@ -7,17 +8,13 @@ import { PostInfo } from '../types/post.interface';
 })
 
 export class PostsService {
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
-
-  // getting data from api call
-  getPosts(): Observable<PostInfo[]> {
-    const posts: PostInfo[] = [
-      { id: 1, title: 'First post', userId: 1, body: 'asldfj' },
-      { id: 2, title: 'Second post', userId: 1, body: 'asldfj' },
-      { id: 3, title: 'Third post', userId: 1, body: 'asldfj' },
-    ];
-    return of(posts).pipe(delay(0));
+  load(): Observable<PostInfo[]> {
+    return this.http.get<PostInfo[]>('http://jsonplaceholder.typicode.com/posts');
   }
 
+  getPosts(): Observable<PostInfo[]> {
+    return this.load().pipe(delay(0));
+  }
 }

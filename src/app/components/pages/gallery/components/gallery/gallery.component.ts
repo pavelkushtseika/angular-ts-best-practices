@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, ChangeDetectorRef, Input } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
@@ -17,12 +17,14 @@ const initialGallery: ImageInfo[] = [];
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent implements OnInit, OnDestroy {
+  @Input() fixSize: number = 0;
+
   gallery: ImageInfo[] = initialGallery;
   dataSource = new MatTableDataSource<ImageInfo>(initialGallery);
 
   isLoading$: Observable<boolean>;
   error$: Observable<string | null>;
-  gallery$: Observable<ImageInfo[]>;
+  gallery$: Observable<ImageInfo[]> | null = null;
   displayGallery: Observable<ImageInfo[]> = new Observable<ImageInfo[]>();
 
   breakpoint: number = 3;
@@ -32,9 +34,6 @@ export class GalleryComponent implements OnInit, OnDestroy {
   constructor(private store: Store<AppState>, private changeDetectorRef: ChangeDetectorRef) {
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
     this.error$ = this.store.pipe(select(errorSelector));
-    this.gallery$ = this.store.pipe(select(gallerySelector));
-
-    this.gallery$.subscribe(gallery => this.dataSource.data = gallery);
   }
   
   onResize(_event?: any) {
@@ -43,8 +42,13 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.onResize();
-    this.changeDetectorRef.detectChanges();
+
+    this.gallery$ = this.store.pipe(select(gallerySelector));
+    this.gallery$.subscribe(gallery => this.dataSource.data = this.fixSize ? gallery.slice(0, this.fixSize) : gallery);
+    
     this.store.dispatch(GalleryActions.getGallery());
+    
+    this.changeDetectorRef.detectChanges();
     this.dataSource.paginator = this.paginator;
     this.displayGallery = this.dataSource.connect();
   }

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
@@ -17,22 +17,21 @@ const initialPosts: PostInfo[] = [];
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements AfterViewInit, OnInit {
+  @Input() fixSize: number = 0;
+
   posts: PostInfo[] = initialPosts;
   displayedColumns: string[] = ['title', 'body'];
   dataSource = new MatTableDataSource<PostInfo>(initialPosts);
 
   isLoading$: Observable<boolean>;
   error$: Observable<string | null>;
-  posts$: Observable<PostInfo[]>;
+  posts$: Observable<PostInfo[]> | null = null;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
 
   constructor(private store: Store<AppState>) {
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
     this.error$ = this.store.pipe(select(errorSelector));
-    this.posts$ = this.store.pipe(select(postsSelector));
-
-    this.posts$.subscribe(posts => this.dataSource.data = posts);
   }
 
   ngAfterViewInit() {
@@ -40,6 +39,9 @@ export class PostsComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
+    this.posts$ = this.store.pipe(select(postsSelector));
+    this.posts$.subscribe(posts => this.dataSource.data = this.fixSize ? posts.slice(0, this.fixSize) : posts);
+
     this.store.dispatch(PostsActions.getPosts());
   }
 }

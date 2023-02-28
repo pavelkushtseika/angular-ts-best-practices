@@ -1,4 +1,4 @@
-import { PostInfo } from "../components/post/post.component";
+import { PostInfo } from './post.interface';
 
 export interface PostsState {
     isLoading: boolean;

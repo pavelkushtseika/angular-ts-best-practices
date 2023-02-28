@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 
-import { PostInfo } from '../post/post.component';
+import { PostInfo } from '../../types/post.interface';
 import { AppState } from '../../../../../types/app.state.interface';
 import * as PostsActions from '../../store/posts.actions';
 import { errorSelector, isLoadingSelector, postsSelector } from '../../store/posts.selectors';

@@ -1,14 +1,8 @@
 import { Component, Input } from '@angular/core';
-
-export interface PostInfo {
-  userID: number,
-  id: number,
-  title: string,
-  body: string
-}
+import { PostInfo } from '../../types/post.interface';
 
 const samplePost: PostInfo = {
-  userID: 1,
+  userId: 1,
   id: 1,
   title: 'title',
   body: 'body'

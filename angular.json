@@ -84,7 +84,8 @@
             },
             "development": {
               "browserTarget": "hometask-angular:build:development"
-            }
+            },
+            "proxyConfig": "./src/proxy.conf.json"
           },
           "defaultConfiguration": "development"
         },

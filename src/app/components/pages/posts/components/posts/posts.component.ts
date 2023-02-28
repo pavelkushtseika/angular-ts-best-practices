@@ -4,10 +4,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { map, Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 
-import { PostInfo } from '../../shared/post/post.component';
-import { AppState } from '../../../types/app.state.interface';
-import * as PostsActions from './store/posts.actions';
-import { errorSelector, isLoadingSelector, postsSelector } from './store/posts.selectors';
+import { PostInfo } from '../post/post.component';
+import { AppState } from '../../../../../types/app.state.interface';
+import * as PostsActions from '../../store/posts.actions';
+import { errorSelector, isLoadingSelector, postsSelector } from '../../store/posts.selectors';
 
 const initialPosts: PostInfo[] = [];
 

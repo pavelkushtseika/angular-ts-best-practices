@@ -13,15 +13,15 @@ export const AppRoutes: Routes = [
       },
       {
         path: 'home',
-        loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
+        loadChildren: () => import('./components/pages/home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'posts',
-        loadChildren: () => import('./components/posts/posts.module').then(m => m.PostsModule)
+        loadChildren: () => import('./components/pages/posts/posts.module').then(m => m.PostsModule)
       },
       {
         path: 'gallery',
-        loadChildren: () => import('./components/gallery/gallery.module').then(m => m.GalleryModule)
+        loadChildren: () => import('./components/pages/gallery/gallery.module').then(m => m.GalleryModule)
       }
     ]
   }

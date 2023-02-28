@@ -12,11 +12,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AppRoutes } from './app.routing';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './components/pages/home/home.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { SidebarComponent } from './components/layout/sidebar/sidebar.component';
-import { PostsComponent } from './components/posts/posts.component';
-import { GalleryComponent } from './components/gallery/gallery.component';
+import { PostsComponent } from './components/pages/posts/posts.component';
+import { GalleryComponent } from './components/pages/gallery/gallery.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     MatListModule,
     MatToolbarModule,
     MatSidenavModule,
-    RouterModule.forRoot(AppRoutes)
+    RouterModule.forRoot(AppRoutes),
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent]

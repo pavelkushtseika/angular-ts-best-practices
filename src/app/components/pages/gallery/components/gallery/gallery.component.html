@@ -1,18 +1,6 @@
-<mat-grid-list [cols]="breakpoint" rowHeight="1:1" (window:resize)="onResize($event)">
-  <mat-grid-tile>
-    <mat-card>
-      <mat-card-header>
-        asdladfasdf
-      </mat-card-header>
-      <img mat-card-image src="https://via.placeholder.com/150/92c952" alt="asdfasdfasdf">
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile>2</mat-grid-tile>
-  <mat-grid-tile>3</mat-grid-tile>
-  <mat-grid-tile>4</mat-grid-tile>
-  <mat-grid-tile>5</mat-grid-tile>
-  <mat-grid-tile>6</mat-grid-tile>
-  <mat-grid-tile *ngFor="let image of gallery$ | async">
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+<mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)">
+  <mat-grid-tile *ngFor="let image of displayGallery | async" class="thumbnail-grid-tile">
     <app-thumbnail [image]="image" />
   </mat-grid-tile>
 </mat-grid-list>

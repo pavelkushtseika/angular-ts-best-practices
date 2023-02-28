@@ -1,5 +1,6 @@
 <mat-toolbar-row>
-  <a mat-button [routerLink]="'/home'">Home</a>
-  <a mat-button [routerLink]="'/posts'">Posts</a>
-  <a mat-button [routerLink]="'/gallery'">Gallery</a>
+  <a mat-button *ngFor="let menuItem of menuItems" [routerLink]="menuItem.path">
+    <mat-icon>{{menuItem.icon}}</mat-icon>
+    {{menuItem.title}}
+  </a>
 </mat-toolbar-row>

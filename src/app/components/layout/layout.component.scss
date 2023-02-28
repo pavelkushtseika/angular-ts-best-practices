@@ -38,3 +38,8 @@
     width: 300px;
   }
 }
+
+mat-sidenav-content {
+  padding: 30px;
+  height: calc(100% - 60px);
+}

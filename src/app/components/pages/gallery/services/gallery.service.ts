@@ -11,7 +11,7 @@ export class GalleryService {
   constructor(private http: HttpClient) {}
 
   load(): Observable<ImageInfo[]> {
-    return this.http.get<ImageInfo[]>('https://jsonplaceholder.typicode.com/photos');
+    return this.http.get<ImageInfo[]>('/api/photos');
   }
 
   // getting data from api call

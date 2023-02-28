@@ -1,1 +1,6 @@
-<p>thumbnail works!</p>
+<mat-card>
+  <mat-card-header>
+    {{ image.title }}
+  </mat-card-header>
+  <img mat-card-image [src]="image.thumbnailUrl" [alt]="image.title">
+</mat-card>

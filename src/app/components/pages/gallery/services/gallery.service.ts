@@ -8,10 +8,11 @@ import { ImageInfo } from '../types/image.interface';
 })
 
 export class GalleryService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   load(): Observable<ImageInfo[]> {
-    return this.http.get<ImageInfo[]>('http://jsonplaceholder.typicode.com/gallery');
+    // return this.http.get<ImageInfo[]>('https://jsonplaceholder.typicode.com/photos');
+    return of([]);
   }
 
   // getting data from api call

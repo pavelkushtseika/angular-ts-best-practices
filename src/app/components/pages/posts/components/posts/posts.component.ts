@@ -7,7 +7,7 @@ import { select, Store } from '@ngrx/store';
 import { PostInfo } from '../../types/post.interface';
 import { AppState } from '../../../../../types/app.state.interface';
 import * as PostsActions from '../../store/posts.actions';
-import { errorSelector, isLoadingSelector, postsSelector } from '../../store/posts.selectors';
+import { isLoadingSelector, errorSelector, postsSelector } from '../../store/posts.selectors';
 
 const initialPosts: PostInfo[] = [];
 

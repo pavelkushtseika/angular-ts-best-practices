@@ -11,7 +11,7 @@ export class PostsService {
   constructor(private http: HttpClient) {}
 
   load(): Observable<PostInfo[]> {
-    return this.http.get<PostInfo[]>('http://jsonplaceholder.typicode.com/posts');
+    return this.http.get<PostInfo[]>('https://jsonplaceholder.typicode.com/posts');
   }
 
   getPosts(): Observable<PostInfo[]> {

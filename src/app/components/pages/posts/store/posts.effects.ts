@@ -21,4 +21,3 @@ export class PostsEffects {
   );
   constructor(private actions$: Actions, private postsService: PostsService) {}
 }
-

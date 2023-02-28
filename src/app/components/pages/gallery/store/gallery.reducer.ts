@@ -5,8 +5,8 @@ import * as GalleryActions from './gallery.actions';
 export const initialState: GalleryState = {
   isLoading: false,
   gallery: [],
-  error: null
-}
+  error: null,
+};
 
 export const galleryReducer = createReducer(
   initialState,
@@ -19,6 +19,6 @@ export const galleryReducer = createReducer(
   on(GalleryActions.getGalleryFailure, (state, action) => ({
     ...state,
     isLoading: false,
-    error: action.error
+    error: action.error,
   }))
 );

@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -26,6 +27,7 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { SidebarComponent } from './components/layout/sidebar/sidebar.component';
 import { PostsComponent } from './components/pages/posts/components/posts/posts.component';
 import { GalleryComponent } from './components/pages/gallery/components/gallery/gallery.component';
+import { ThumbnailComponent } from './components/pages/gallery/components/thumbnail/thumbnail.component';
 import { PostComponent } from './components/pages/posts/components/post/post.component';
 import { entityConfig } from './entity-metadata';
 
@@ -38,13 +40,15 @@ import { entityConfig } from './entity-metadata';
     SidebarComponent,
     PostsComponent,
     GalleryComponent,
-    PostComponent
+    PostComponent,
+    ThumbnailComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatButtonModule,
+    MatCardModule,
     MatIconModule,
     MatGridListModule,
     MatListModule,

@@ -10,7 +10,7 @@ export class GalleryEffects {
     this.actions$.pipe(
       ofType(GalleryActions.getGallery),
       mergeMap(() => {
-        return this.galleryService$.getGallery().pipe(
+        return this.galleryService.getGallery().pipe(
           map((gallery) => GalleryActions.getGallerySuccess({ gallery })),
           catchError((error) =>
             of(GalleryActions.getGalleryFailure({ error: error.message }))
@@ -19,5 +19,5 @@ export class GalleryEffects {
       })
     )
   );
-  constructor(private actions$: Actions, private galleryService$: GalleryService) {}
+  constructor(private actions$: Actions, private galleryService: GalleryService) {}
 }

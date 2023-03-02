@@ -8,10 +8,19 @@ import { PostInfo } from '../types/post.interface';
 })
 
 export class PostsService {
+  private lastTime: number = 0;
+  private cacheData: Observable<PostInfo[]> = of([]);
+  private readonly expiredTime: number = 1000 * 60 * 5;
+
   constructor(private http: HttpClient) {}
 
   load(): Observable<PostInfo[]> {
-    return this.http.get<PostInfo[]>('/api/posts');
+    const now: number = Date.now();
+    if (this.lastTime === 0 || this.lastTime + this.expiredTime > now) {
+      this.lastTime = now;
+      this.cacheData = this.http.get<PostInfo[]>('/api/posts');
+    }
+    return this.cacheData;
   }
 
   getPosts(): Observable<PostInfo[]> {
